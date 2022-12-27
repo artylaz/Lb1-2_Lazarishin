@@ -1,0 +1,46 @@
+﻿@model IndexVM
+
+<div>
+    <form asp-action="Index" asp-controller="Home" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="excelFiles" class="form-label">Загрузка файлов Excel</label>
+            <input type="file" multiple accept=".xls,.xlsx" class="form-control" name="excelFiles" id="excelFiles">
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Вывести таблицу</button>
+        </div>
+
+    </form>
+
+    @if (Model != null)
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Вопросы</th>
+
+                    @foreach (var item in Model.Questionnaires)
+                    {
+                        <th>@item.PersonName</th>
+                    }
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @for (int i = 0; i < Model.Questions.Count; i++)
+                {
+                    int k = 0;
+                    <tr>
+                        <td>@Model.Questions[i]</td>
+                        @for (int j = 0; j < Model.Questionnaires.Count; j++)
+                        {
+                            <td>@Model.Questionnaires[j].ValuesToString[k]</td>
+                            k++;
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
