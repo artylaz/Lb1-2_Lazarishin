@@ -30,13 +30,11 @@
 
                 @for (int i = 0; i < Model.Questions.Count; i++)
                 {
-                    int k = 0;
                     <tr>
                         <td>@Model.Questions[i]</td>
                         @for (int j = 0; j < Model.Questionnaires.Count; j++)
                         {
-                            <td>@Model.Questionnaires[j].ValuesToString[k]</td>
-                            k++;
+                            <td>@Model.Questionnaires[j].ValuesToString[i]</td>
                         }
                     </tr>
                 }
