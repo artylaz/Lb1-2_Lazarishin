@@ -1,0 +1,64 @@
+﻿@model IndexVM
+
+<div>
+
+    @if (Model != null)
+    {
+        @if (Model.Status == Status.Normalization)
+        {
+
+            <form>
+                <div class="mb-3">
+                    <label for="r" class="form-label">Пороговое расстояние R</label>
+                    <input type="number" step="0.01" multiple accept=".xls,.xlsx" class="form-control" name="R" id="r">
+                </div>
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary">Вывести таксоны</button>
+                </div>
+
+                @for (int i = 0; i < Model.Questionnaires.Count; i++)
+                {
+                    <input type="hidden" name="Questionnaires[@i].PersonName" value="@Model.Questionnaires[i].PersonName" />
+                }
+                @for (int i = 0; i < Model.Rows.Count; i++)
+                {
+                    @for (int j = 0; j < Model.Questionnaires.Count; j++)
+                    {
+                        <input type="hidden" name="Questionnaires[@j].Values[@i]" value="@Model.Questionnaires[j].Values[i]" />
+                    }
+                }
+            </form>
+
+            <div class="text-center mt-4">
+                <h3>Нормализованные данные</h3>
+            </div>
+
+            <table class="table table-striped mt=2">
+                <thead>
+                    <tr>
+                        <th>Вопросы</th>
+
+                        @foreach (var item in Model.Questionnaires)
+                        {
+                            <th>@item.PersonName</th>
+                        }
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @for (int i = 0; i < Model.Rows.Count; i++)
+                    {
+                        <tr>
+                            <td>@Model.Rows[i].Question</td>
+                            @for (int j = 0; j < Model.Questionnaires.Count; j++)
+                            {
+                                <td>@Model.Questionnaires[j].Values[i]</td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    }
+</div>
