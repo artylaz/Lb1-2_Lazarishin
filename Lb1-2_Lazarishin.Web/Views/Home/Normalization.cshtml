@@ -7,10 +7,10 @@
         @if (Model.Status == Status.Normalization)
         {
 
-            <form>
+            <form asp-action="TaxonView" asp-controller="Home" method="get">
                 <div class="mb-3">
                     <label for="r" class="form-label">Пороговое расстояние R</label>
-                    <input type="number" step="0.01" multiple accept=".xls,.xlsx" class="form-control" name="R" id="r">
+                    <input type="number" step="0.01" multiple class="form-control" name="R" id="r">
                 </div>
                 <div class="text-center mt-3">
                     <button type="submit" class="btn btn-primary">Вывести таксоны</button>

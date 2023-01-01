@@ -56,6 +56,7 @@ namespace Lb1_2_Lazarishin.Web.Models
             //};
         }
         public readonly List<Row> Rows;
+        public double R { get; set; }
         //public readonly List<string> Questions;
         public List<Questionnaire> Questionnaires { get; set; }
         public Status Status { get; set; }

@@ -1,4 +1,5 @@
-﻿using Lb1_2_Lazarishin.Web.Models;
+﻿using Lb1_2_Lazarishin.TaxonLibrary;
+using Lb1_2_Lazarishin.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using OfficeOpenXml;
 
@@ -66,9 +67,19 @@ namespace Lb1_2_Lazarishin.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult TaxonView()
+        public IActionResult TaxonView(IndexVM indexVM)
         {
-            return View();
+            var vectors = new List<Vector>();
+
+            foreach (var item in indexVM.Questionnaires)
+            {
+                vectors.Add(new Vector { Name = item.PersonName, Values = item.Values });
+            }
+
+            var taxa = Calculation.FindTaxa(vectors, indexVM.R);
+
+            var taxonVM = new TaxonVM(taxa);
+            return View(taxonVM);
         }
 
         /// <summary>
@@ -97,7 +108,7 @@ namespace Lb1_2_Lazarishin.Web.Controllers
             return indexVM;
         }
 
-        
+
 
         /// <summary>
         /// </summary>
