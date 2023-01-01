@@ -1,8 +1,6 @@
 ﻿using Lb1_2_Lazarishin.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using OfficeOpenXml;
-using System;
-using System.Collections.Generic;
 
 namespace Lb1_2_Lazarishin.Web.Controllers
 {
@@ -43,7 +41,6 @@ namespace Lb1_2_Lazarishin.Web.Controllers
             //var (minValues, maxValues) = GetMinMaxValues(indexVM);
 
             //Нормализация
-
             for (int i = 0; i < indexVM.Rows.Count; i++)
             {
                 for (int j = 0; j < indexVM.Questionnaires.Count; j++)
@@ -66,6 +63,12 @@ namespace Lb1_2_Lazarishin.Web.Controllers
             indexVM.Status = Status.Normalization;
 
             return View(indexVM);
+        }
+
+        [HttpGet]
+        public IActionResult TaxonView()
+        {
+            return View();
         }
 
         /// <summary>
