@@ -5,9 +5,9 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lb1-2_Lazarishin.Web", "Lb1-2_Lazarishin.Web\Lb1-2_Lazarishin.Web.csproj", "{ACFBC2A7-7181-47F6-AE7F-E9586986244B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lb1-2_Lazarishin.TaxonLibrary", "Lb1-2_Lazarishin.TaxonLibrary\Lb1-2_Lazarishin.TaxonLibrary.csproj", "{C6CEF781-34E0-4614-80E9-070C632FBFB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lb1-2_Lazarishin.TaxonLibrary", "Lb1-2_Lazarishin.TaxonLibrary\Lb1-2_Lazarishin.TaxonLibrary.csproj", "{C6CEF781-34E0-4614-80E9-070C632FBFB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lb1-2_Lazarishin.TaxonLibraryTests", "Lb1-2_Lazarishin.TaxonLibraryTests\Lb1-2_Lazarishin.TaxonLibraryTests.csproj", "{637EE813-7A1D-4BB3-A1F0-AEBCA65C0B13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lb1-2_Lazarishin.TaxonLibraryTests", "Lb1-2_Lazarishin.TaxonLibraryTests\Lb1-2_Lazarishin.TaxonLibraryTests.csproj", "{637EE813-7A1D-4BB3-A1F0-AEBCA65C0B13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

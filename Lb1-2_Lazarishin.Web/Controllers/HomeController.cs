@@ -19,7 +19,7 @@ namespace Lb1_2_Lazarishin.Web.Controllers
             if (excelFiles == null || excelFiles.Count == 0)
                 return View();
 
-            var indexVM = GetIndexVmAsync(new IndexVM(), excelFiles);
+            var indexVM = ExportExcelFiles(new IndexVM(), excelFiles);
 
             if (indexVM != null)
             {
@@ -34,7 +34,7 @@ namespace Lb1_2_Lazarishin.Web.Controllers
         public IActionResult Normalization(IndexVM indexVM)
         {
             //Преобразуем лист<string> в лист<double>
-            indexVM = GetValuesDoouble(indexVM);
+            indexVM = GetValuesDouble(indexVM);
             if (indexVM == null)
                 return View();
 
@@ -87,7 +87,7 @@ namespace Lb1_2_Lazarishin.Web.Controllers
         /// </summary>
         /// <param name="indexVM"></param>
         /// <returns></returns>
-        public IndexVM GetValuesDoouble(IndexVM indexVM)
+        public IndexVM GetValuesDouble(IndexVM indexVM)
         {
             for (int i = 0; i < indexVM.Rows.Count; i++)
             {
@@ -115,7 +115,7 @@ namespace Lb1_2_Lazarishin.Web.Controllers
         /// <param name="indexVM"></param>
         /// <param name="excelFiles"></param>
         /// <returns>Возвращает заполненную ViewModel данными из внесенных excel файлов</returns>
-        public IndexVM GetIndexVmAsync(IndexVM indexVM, IFormFileCollection excelFiles)
+        public IndexVM ExportExcelFiles(IndexVM indexVM, IFormFileCollection excelFiles)
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 

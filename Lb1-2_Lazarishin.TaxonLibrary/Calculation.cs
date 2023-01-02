@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Lb1_2_Lazarishin.TaxonLibrary
+﻿namespace Lb1_2_Lazarishin.TaxonLibrary
 {
     public static class Calculation
     {
@@ -27,6 +21,9 @@ namespace Lb1_2_Lazarishin.TaxonLibrary
                         for (int k = 0; k < vectors.Count; k++)
                         {
                             var r = FindDistance(taxa[i].Vectors[j], vectors[k]);
+                            if (r == 1)
+                                return null;
+
                             if (r < R)
                             {
                                 addVectors.Add(vectors[k]);
@@ -43,7 +40,7 @@ namespace Lb1_2_Lazarishin.TaxonLibrary
                             addVectors.Clear();
                         }
                     }
-                    
+
                     if (vectors.Count == 0)
                     {
                         break;
