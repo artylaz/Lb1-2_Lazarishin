@@ -95,8 +95,6 @@ namespace Lb1_2_Lazarishin.TaxonLibraryTests
 
             //assert
             Assert.That(equal, Is.True);
-
-
         }
 
         [Test]
@@ -112,7 +110,6 @@ namespace Lb1_2_Lazarishin.TaxonLibraryTests
 
             //assert
             Assert.That(actual, Is.EqualTo(expected).Within(2));
-
         }
     }
 }

@@ -100,7 +100,7 @@ namespace Lb1_2_Lazarishin.Web.Controllers
 
                     var valueStr = indexVM.Questionnaires[j].ValuesToString[i];
 
-                    if (double.TryParse(valueStr, out double value))
+                    if (double.TryParse(valueStr, out double value)) 
                         indexVM.Questionnaires[j].Values.Add(value);
                 }
             }

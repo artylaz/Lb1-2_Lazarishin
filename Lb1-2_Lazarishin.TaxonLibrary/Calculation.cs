@@ -21,7 +21,7 @@
                         for (int k = 0; k < vectors.Count; k++)
                         {
                             var r = FindDistance(taxa[i].Vectors[j], vectors[k]);
-                            if (r == 1)
+                            if (r == -1)
                                 return null;
 
                             if (r < R)
